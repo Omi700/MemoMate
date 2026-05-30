@@ -12,6 +12,7 @@
 #include "i2c_bsp.h"
 #include "i2c_equipment.h"
 #include "icons/climate_icons.h"
+#include "images/cat_photo.h"
 #include "u8g2_st7305.h"
 #include "user_config.h"
 
@@ -162,6 +163,12 @@ static void DrawUI(u8g2_t *u8g2, const rtcTimeStruct_t &time, float temp_c, floa
     int divider_y = y1 + h1 - 44;
     u8g2_DrawHLine(u8g2, x1 + inner_offset + 12, divider_y, w1 - (inner_offset + 12) * 2);
     DrawClimateSummary(u8g2, center_x1, y1 + h1 - 12, temp_c, humidity);
+
+    // 左下角照片位图：贴在内边框线以内，内边框就是照片的边缘。
+    int photo_x = x3 + inner_offset + 1;
+    int photo_y = y3 + inner_offset + 1;
+    u8g2_DrawXBMP(u8g2, photo_x, photo_y, kCatPhotoWidth, kCatPhotoHeight, cat_photo_bits);
+    u8g2_DrawRFrame(u8g2, x3 + inner_offset, y3 + inner_offset, w3 - inner_offset * 2, h3 - inner_offset * 2, radius - 2);
 
     // 发送到屏幕
     u8g2_SendBuffer(u8g2);

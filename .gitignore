@@ -1,0 +1,19 @@
+.DS_Store
+**/.DS_Store
+__pycache__/
+*.pyc
+
+# Editor-local files
+.vscode/
+
+# Local scratch file outside the ESP-IDF project
+/main.cpp
+
+# ESP-IDF generated files
+firmware/echofridge/build/
+firmware/echofridge/managed_components/
+firmware/echofridge/sdkconfig.old
+
+# Large external reference repositories/tools kept locally only
+/vendor/
+firmware/echofridge/vendor/u8g2-tools/

@@ -1,0 +1,24 @@
+if(NOT DEFINED OUTPUT_FILE)
+    message(FATAL_ERROR "OUTPUT_FILE is required")
+endif()
+
+get_filename_component(OUTPUT_DIR "${OUTPUT_FILE}" DIRECTORY)
+file(MAKE_DIRECTORY "${OUTPUT_DIR}")
+
+string(TIMESTAMP BUILD_YEAR "%Y")
+string(TIMESTAMP BUILD_MONTH "%m")
+string(TIMESTAMP BUILD_DAY "%d")
+string(TIMESTAMP BUILD_HOUR "%H")
+string(TIMESTAMP BUILD_MINUTE "%M")
+string(TIMESTAMP BUILD_SECOND "%S")
+
+file(WRITE "${OUTPUT_FILE}"
+"#pragma once
+
+#define BUILD_YEAR ${BUILD_YEAR}
+#define BUILD_MONTH ${BUILD_MONTH}
+#define BUILD_DAY ${BUILD_DAY}
+#define BUILD_HOUR ${BUILD_HOUR}
+#define BUILD_MINUTE ${BUILD_MINUTE}
+#define BUILD_SECOND ${BUILD_SECOND}
+")

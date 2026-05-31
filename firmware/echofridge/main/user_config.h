@@ -19,4 +19,10 @@
 
 #define PCF85063_ADDR       0x51
 
+#define SDCARD_MOUNT_POINT  "/sdcard"
+#define SDCARD_CLK_PIN      GPIO_NUM_38
+#define SDCARD_CMD_PIN      GPIO_NUM_21
+#define SDCARD_D0_PIN       GPIO_NUM_39
+#define SDCARD_BUS_WIDTH    1
+
 #endif
